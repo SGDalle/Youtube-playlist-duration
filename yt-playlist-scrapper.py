@@ -53,9 +53,18 @@ print(duration_list)
 #sum of all videos duration
 sum = datetime.timedelta()
 for i in duration_list:
-   (m,s) = i.split(':')
-   d = datetime.timedelta(minutes=int(m), seconds=int(s))
-   sum += d
+   collon = 0
+   for j in i:
+      if j ==":":
+         collon +=1
+   if collon >= 2:
+      (h,m,s) = i.split(':')
+      d = datetime.timedelta(hours=int(h), minutes=int(m), seconds=int(s))
+      sum += d
+   elif collon == 1:
+      (m,s) = i.split(':')
+      d = datetime.timedelta(minutes=int(m), seconds=int(s))
+      sum += d
 
 print(str(sum))
 
