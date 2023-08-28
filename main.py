@@ -18,7 +18,7 @@ last_height = driver.execute_script("return document.documentElement.scrollHeigh
 
 while True:
   driver.execute_script("window.scrollTo(0, arguments[0]);", last_height)
-  time.sleep(3)
+  time.sleep(.25)
   
   new_height = driver.execute_script("return document.documentElement.scrollHeight")
   if new_height == last_height:
@@ -33,7 +33,7 @@ while max_scroll < last_height:
    driver.execute_script("window.scrollTo(arguments[0], arguments[1]);", initial_scroll, max_scroll)
    initial_scroll = max_scroll
    max_scroll += 1000
-   time.sleep(1)
+   time.sleep(0.1)
    
 
 
